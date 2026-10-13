@@ -2,7 +2,9 @@
 
 ## Project Structure & Module Organization
 
-This is a CommonJS Express 5 backend organized by feature. Runtime entry points are `src/server.js` and `src/app.js`. Add shared configuration under `src/configs/`, integrations and reusable clients under `src/libs/`, request middleware under `src/middlewares/`, feature modules under `src/modules/`, HTTP wiring under `src/routes/`, and small general-purpose helpers under `src/utils/`. Prisma schema and migrations belong in `prisma/`; generated Prisma output is ignored. Keep secrets in `.env`, which must never be committed.
+This is a CommonJS Express 5 backend organized by feature. Runtime entry points are `src/server.js` and `src/app.js`. Add shared configuration under `src/configs/`, integrations and reusable clients under `src/libs/`, request middleware under `src/middlewares/`, feature modules under `src/modules/`, HTTP wiring under `src/routes/`, and small general-purpose helpers under `src/utils/`. Put project documentation in `docs/`, unit tests in `tests/unit/`, and integration tests in `tests/integration/`. Prisma schema and migrations belong in `prisma/`; generated Prisma output is ignored. Keep secrets in `.env`, which must never be committed.
+
+Git tracks files rather than directories. Empty `docs/` or `tests/` folders are not included in commits or pushes; add real files or a `.gitkeep` placeholder when an empty structure must be preserved.
 
 ## Build, Test, and Development Commands
 
@@ -21,8 +23,8 @@ Use JavaScript with CommonJS (`require`/`module.exports`) to match `package.json
 
 ## Testing Guidelines
 
-No test framework or coverage threshold is configured yet. When adding tests, colocate unit tests with their feature or use a top-level `tests/` directory, name files `*.test.js`, and cover route success, validation, authentication, and error paths. Add the chosen test command to `package.json` and ensure it runs without requiring production secrets.
+No test framework or coverage threshold is configured yet. Use the top-level `tests/unit/` and `tests/integration/` directories for tests, name files `*.test.js`, and cover route success, validation, authentication, and error paths. Add the chosen test command to `package.json` and ensure it runs without requiring production secrets.
 
 ## Commit & Pull Request Guidelines
 
-No Git history is available in this working copy, so no existing commit convention can be verified. Prefer short imperative messages such as `Add user registration route` and keep each commit focused. Pull requests should explain the behavior change, list verification commands, note Prisma schema or migration changes, and include example API requests/responses when endpoints change. Never include `.env` values or credentials.
+Prefer short imperative messages such as `Add user registration route` and keep each commit focused. Pull requests should explain the behavior change, list verification commands, note Prisma schema or migration changes, and include example API requests/responses when endpoints change. Never include `.env` values or credentials.

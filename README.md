@@ -27,11 +27,17 @@ src/
 |-- utils/         General helpers
 |-- app.js         Express application setup
 `-- server.js      Server entry point
+tests/
+|-- unit/          Unit tests
+`-- integration/   API and integration tests
+docs/              Project documentation
 prisma/
 `-- schema.prisma  Database schema
 ```
 
 Keep feature-specific code inside `src/modules/`. Put shared concerns in the corresponding top-level folder rather than coupling them to one feature.
+
+Git tracks files, not empty directories. The `docs/`, `tests/unit/`, and `tests/integration/` folders will not appear in a remote repository until they contain a file, such as documentation, a test, or a `.gitkeep` placeholder.
 
 ## Getting Started
 
@@ -67,6 +73,8 @@ npm run dev     # Run with automatic restarts
 ```
 
 The current `npm test` script is a placeholder because no test framework has been selected yet.
+
+The test directories are reserved for future unit and integration tests. When tests are added, update the `test` script in `package.json` to run the selected test framework.
 
 ## Security
 
